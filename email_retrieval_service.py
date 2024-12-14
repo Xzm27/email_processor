@@ -28,7 +28,7 @@ def get_env_variable(name, default=None, required=False):
 
 def setup_database():
     """
-    Function to setup SQlite database
+    Setup SQlite database
     """
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
@@ -45,7 +45,7 @@ def setup_database():
     
 def connect_to_email_server(imap_host, username, password):
     """
-    Function to connect to the gmail imap server
+    Connect to the IMAP server
     """
     try:
         server = imaplib.IMAP4_SSL(imap_host)
@@ -57,7 +57,7 @@ def connect_to_email_server(imap_host, username, password):
 
 def fetch_and_process_emails(server):
     """
-    Function to fetch emails from the inbox and process the unread emails
+    Fetch emails from the inbox and process the unread emails
     """
     try:
         server.select("inbox")
@@ -98,7 +98,7 @@ def fetch_and_process_emails(server):
 
 def save_email_to_db(sender, subject, timestamp):
     """
-    Function to save the processed emails to the sqlite database
+    Save the processed emails to the sqlite database
     """
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
